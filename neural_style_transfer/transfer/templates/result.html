@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stylized Image Result</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay muted loop id="bg-video">
+            <source src="{% static 'videos/1.mp4' %}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <div class="container">
+        <h1>Stylized Image</h1>
+        <div class="image-container">
+            <img src="{{ image.result_image.url }}" id="stylized-image" alt="Stylized Image">
+        </div>
+        <button onclick="downloadImage()">Download</button>
+        <a href="{% url 'index' %}">Go Back</a>
+    </div>
+
+    <script>
+        function downloadImage() {
+            const link = document.getElementById('download-link');
+            link.click();
+        }
+    </script>
+</body>
+</html>
